@@ -1,4 +1,4 @@
-from Megoldások import Megoldások
+from Megoldasok import Megoldások
 
 def main() -> None:
     # valaszok: list[Szavazatok] = []

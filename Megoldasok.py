@@ -1,9 +1,8 @@
 from Szavazatok import Szavazatok
 
 
-class Megoldások:
+class Megoldasok:
     _szavazatok: list[Szavazatok] = []
-
 
     def __init__(self, fájl_neve: str):
         self._szavazatok = []
