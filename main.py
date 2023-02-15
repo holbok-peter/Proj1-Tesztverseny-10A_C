@@ -1,10 +1,9 @@
-from Megoldasok import Megoldások
+from Megoldasok import Megoldasok
+
 
 def main() -> None:
-    # valaszok: list[Szavazatok] = []
-    # with open('valaszok.txt', 'r', encoding='utf-8') as file:
-    #     for sor in file.read().splitlines()[1:]:
-    #         valaszok.append(Szavazatok(sor))
+    m = Megoldasok('valaszok.txt')
+    print(f'2. feladat: A vetélkedőn {m.versenyzok_szama} versenyző indult.')
 
 
 if __name__ == "__main__":
