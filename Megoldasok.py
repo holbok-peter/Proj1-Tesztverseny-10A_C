@@ -1,15 +1,15 @@
-from Szavazatok import Szavazatok
+from Valaszok import Valaszok
 
 
 class Megoldasok:
-    _szavazatok: list[Szavazatok] = []
+    _valaszok: list[Valaszok] = []
 
     @property
     def versenyzok_szama(self) -> int:
-        return len(self._szavazatok)
+        return len(self._valaszok)
 
     def __init__(self, fájl_neve: str):
-        self._szavazatok = []
+        self._valaszok = []
         with open(fájl_neve, 'r', encoding='utf-8') as file:
             for sor in file.read().splitlines()[1:]:
-                self._szavazatok.append(Szavazatok(sor))
+                self._valaszok.append(Valaszok(sor))

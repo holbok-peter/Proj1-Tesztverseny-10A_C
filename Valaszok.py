@@ -1,4 +1,4 @@
-class Szavazatok:
+class Valaszok:
     azonosító: str
     válaszok: str
 
