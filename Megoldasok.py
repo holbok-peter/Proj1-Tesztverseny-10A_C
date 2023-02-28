@@ -34,9 +34,25 @@ class Megoldasok:
                 return self.válaszok
         return "Nincs ilyen azonosító."
 
+# 4.feladat:
+    @property
+    def megoldas(self):
+        szöveg: str = ""
+        for i, e in enumerate(self.válaszok):
+            if e == self.helyes_megoldas[i]:
+                szöveg += "+"
+            else:
+                szöveg += " "
+        return szöveg
+
+# 5.feladat:
+
     def feladat_index(self, keresett_id: int):
         helyes_megoldasok_szama: int = 0
         for i in self._valaszok_list:
             if i.valaszok[keresett_id - 1] == self.helyes_megoldas[keresett_id - 1]:
                 helyes_megoldasok_szama += 1
         return [helyes_megoldasok_szama, round((helyes_megoldasok_szama / len(self._valaszok_list) * 100), 2)]
+
+# 6.feladat:
+
