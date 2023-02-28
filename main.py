@@ -39,6 +39,8 @@ def main() -> None:
     # 6.feladat:
 
     print("6. feladat: A versenyzők pontszámának meghatározása")
+    eredmenyek = m.versenyzok_pont_szama
+    print(m.fájl_kiírás(eredmenyek))
 
 
 if __name__ == "__main__":

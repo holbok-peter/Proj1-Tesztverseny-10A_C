@@ -14,7 +14,7 @@ class Megoldasok:
     def m_lista(self):
         return self._valaszok_list
 
-# 2.feladat:
+    # 2.feladat:
 
     def __init__(self, fájl_neve: str):
         self._valaszok_list = []
@@ -25,7 +25,7 @@ class Megoldasok:
                 else:
                     self._valaszok_list.append(Valaszok(sor))
 
-# 3.feladat:
+    # 3.feladat:
 
     def valaszok(self, azonosito: str) -> str:
         for versenyzo in self._valaszok_list:
@@ -34,7 +34,7 @@ class Megoldasok:
                 return self.válaszok
         return "Nincs ilyen azonosító."
 
-# 4.feladat:
+    # 4.feladat:
     @property
     def megoldas(self):
         szöveg: str = ""
@@ -45,7 +45,7 @@ class Megoldasok:
                 szöveg += " "
         return szöveg
 
-# 5.feladat:
+    # 5.feladat:
 
     def feladat_index(self, keresett_id: int):
         helyes_megoldasok_szama: int = 0
@@ -54,5 +54,31 @@ class Megoldasok:
                 helyes_megoldasok_szama += 1
         return [helyes_megoldasok_szama, round((helyes_megoldasok_szama / len(self._valaszok_list) * 100), 2)]
 
-# 6.feladat:
+    # 6.feladat:
+    @property
+    def versenyzok_pont_szama(self):
+        verseny_stat: dict[str, int] = {}
+        for e in self._valaszok_list:
+            i: int = 0
+            pontok: int = 0
+            while len(self.helyes_megoldas) != i:
+                if e.valaszok[i] == self.helyes_megoldas[i]:
+                    if i <= 4:
+                        pontok += 3
+                    elif 9 >= i > 4:
+                        pontok += 4
+                    elif 12 >= i > 9:
+                        pontok += 5
+                    elif i > 12:
+                        pontok += 6
+                i += 1
 
+            if e.azonosito not in verseny_stat:
+                verseny_stat[e.azonosito] = pontok
+        return verseny_stat
+
+    def fájl_kiírás(self, kiirando_allomany: dict[str, int]):
+        with open('pontok.txt', 'w', encoding='utf-8') as file:
+            for kulcs, ertek in kiirando_allomany.items():
+                file.write(f'{kulcs} {ertek}\n')
+        file.close()
