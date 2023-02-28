@@ -29,9 +29,12 @@ def main() -> None:
             print(' ', end='')
     print(' (a versenyző helyes válaszai)')
 
-    keresett_id = int(input('5.feladat: A fekadat sorszáma = '))
-    megoldas = m.feladat_index(keresett_id)
-    print(f'A feladatra {megoldas[0]} fő, a versenyzők {megoldas[1]}-a adott helyes választ. ')
+    try:
+        keresett_id = int(input('5.feladat: A fekadat sorszáma = '))
+        megoldas = m.feladat_index(keresett_id)
+        print(f'A feladatra {megoldas[0]} fő, a versenyzők {megoldas[1]}-a adott helyes választ. ')
+    except IndexError:
+        print('Nincs ilyen számú kérdés')
 
 
 if __name__ == "__main__":
