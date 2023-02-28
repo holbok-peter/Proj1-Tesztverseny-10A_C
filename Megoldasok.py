@@ -21,3 +21,10 @@ class Megoldasok:
                     self.helyes_megoldas = sor
                 else:
                     self._valaszok_list.append(Valaszok(sor))
+
+    def feladat_index(self, keresett_id: int):
+        helyes_megoldasok_szama: int = 0
+        for i in self._valaszok_list:
+            if i.valaszok[keresett_id - 1] == self.helyes_megoldas[keresett_id - 1]:
+                helyes_megoldasok_szama += 1
+        return [helyes_megoldasok_szama, round((helyes_megoldasok_szama / len(self._valaszok_list) * 100), 2)]
