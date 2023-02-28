@@ -4,6 +4,7 @@ from Valaszok import Valaszok
 class Megoldasok:
     _valaszok_list: list[Valaszok]
     helyes_megoldas: str
+    válaszok: str = ''
 
     @property
     def versenyzok_szama(self) -> int:
@@ -13,6 +14,8 @@ class Megoldasok:
     def m_lista(self):
         return self._valaszok_list
 
+# 2.feladat:
+
     def __init__(self, fájl_neve: str):
         self._valaszok_list = []
         with open(fájl_neve, 'r', encoding='utf-8') as file:
@@ -21,3 +24,11 @@ class Megoldasok:
                     self.helyes_megoldas = sor
                 else:
                     self._valaszok_list.append(Valaszok(sor))
+# 3.feladat:
+
+    def valaszok(self, azonosito: str) -> str:
+        for versenyzo in self._valaszok_list:
+            if versenyzo.azonosito == azonosito:
+                self.válaszok: str = str(versenyzo.valaszok)
+                return self.válaszok
+        return "Nincs ilyen azonosító."
