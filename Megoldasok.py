@@ -40,4 +40,3 @@ class Megoldasok:
             if i.valaszok[keresett_id - 1] == self.helyes_megoldas[keresett_id - 1]:
                 helyes_megoldasok_szama += 1
         return [helyes_megoldasok_szama, round((helyes_megoldasok_szama / len(self._valaszok_list) * 100), 2)]
-
