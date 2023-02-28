@@ -55,3 +55,4 @@ class Megoldasok:
         return [helyes_megoldasok_szama, round((helyes_megoldasok_szama / len(self._valaszok_list) * 100), 2)]
 
 # 6.feladat:
+
