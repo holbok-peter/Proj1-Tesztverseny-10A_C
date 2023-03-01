@@ -1,3 +1,4 @@
+
 from Valaszok import Valaszok
 
 
@@ -54,10 +55,11 @@ class Megoldasok:
                 helyes_megoldasok_szama += 1
         return [helyes_megoldasok_szama, round((helyes_megoldasok_szama / len(self._valaszok_list) * 100), 2)]
 
+    verseny_stat: dict[str, int] = {}
     # 6.feladat:
+
     @property
     def versenyzok_pont_szama(self):
-        verseny_stat: dict[str, int] = {}
         for e in self._valaszok_list:
             i: int = 0
             pontok: int = 0
@@ -73,12 +75,39 @@ class Megoldasok:
                         pontok += 6
                 i += 1
 
-            if e.azonosito not in verseny_stat:
-                verseny_stat[e.azonosito] = pontok
-        return verseny_stat
+            if e.azonosito not in self.verseny_stat:
+                self.verseny_stat[e.azonosito] = pontok
+        return self.verseny_stat
 
     def fájl_kiírás(self, kiirando_allomany: dict[str, int]):
         with open('pontok.txt', 'w', encoding='utf-8') as file:
             for kulcs, ertek in kiirando_allomany.items():
                 file.write(f'{kulcs} {ertek}\n')
         file.close()
+
+    # 7.feladat:
+    @property
+    def legjobbak(self):
+        tempdict: dict[str, int] = dict(sorted(self.verseny_stat.items(), key=lambda item: item[1]))
+
+        utolsó_pont: int = 0
+        helyezett: int = 1
+
+        szoveg: str = ""
+
+        for index in range(0, 5):
+            azonosito: str = list(tempdict.keys())[len(tempdict) - index - 1]
+            eredmeny: int = list(tempdict.values())[len(tempdict) - index - 1]
+
+            if utolsó_pont == eredmeny:
+                helyezett -= 1
+
+            if helyezett > 3:
+                break
+
+            szoveg += f"{helyezett}.díj ({eredmeny} pont): {azonosito}\n"
+
+            utolsó_pont = eredmeny
+            helyezett += 1
+
+        return szoveg
