@@ -13,9 +13,11 @@ class TestMegoldas(TestCase):
 
     def test_valaszok(self):
         self.assertEqual(self.megoldas1.valaszok('AB123'), 'BXCDBBACACADBC')
-    
+        self.assertEqual(self.megoldas1.valaszok('AH97'), 'BCACDBDDBCBBCA')
+
     def test_megoldas(self):
-        self.assertEqual(self.megoldas1.megoldas, ' + +  +   +   ')
+        self.megoldas1.valaszok('AB123')
+        self.assertEqual(self.megoldas1.megoldas, '+ +  +   +    ')
 
     def test_feladat_index(self):
         f5 = self.megoldas1.feladat_index(10)

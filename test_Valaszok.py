@@ -16,11 +16,11 @@ class testValaszok(TestCase):
         self.assertEqual(self.valaszok2.azonosito, 'AH97')
         self.assertEqual(self.valaszok3.azonosito, 'ZZ240')
         self.assertEqual(self.valaszok4.azonosito, 'TC757')
-        self.assertEqual(self.valaszok4.azonosito, 'KN731')
+        self.assertEqual(self.valaszok5.azonosito, 'KN731')
 
     def test_válaszok(self):
         self.assertEqual(self.valaszok1.valaszok, 'BXCDBBACACADBC')
         self.assertEqual(self.valaszok2.valaszok, 'BCACDBDDBCBBCA')
         self.assertEqual(self.valaszok3.valaszok, 'ABBCDADDCACDDD')
         self.assertEqual(self.valaszok4.valaszok, 'ABCACBBBDDBABA')
-        self.assertEqual(self.valaszok4.valaszok, 'CAABDDBCCBDDAC')
+        self.assertEqual(self.valaszok5.valaszok, 'CAABDDBCCBDDAC')
