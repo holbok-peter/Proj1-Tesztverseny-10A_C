@@ -36,6 +36,7 @@ class Megoldasok:
         return "Nincs ilyen azonosító."
 
     # 4.feladat:
+
     @property
     def megoldas(self):
         szöveg: str = ""
@@ -56,6 +57,7 @@ class Megoldasok:
         return [helyes_megoldasok_szama, round((helyes_megoldasok_szama / len(self._valaszok_list) * 100), 2)]
 
     verseny_stat: dict[str, int] = {}
+
     # 6.feladat:
 
     @property
@@ -86,6 +88,7 @@ class Megoldasok:
         file.close()
 
     # 7.feladat:
+
     @property
     def legjobbak(self):
         tempdict: dict[str, int] = dict(sorted(self.verseny_stat.items(), key=lambda item: item[1]))
