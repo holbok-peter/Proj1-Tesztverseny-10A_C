@@ -14,6 +14,3 @@ class Valaszok:
         m: list[str] = sor.split(' ')
         self._azonosító = m[0]
         self._válaszok = m[1]
-
-    def _azonosito_valasz(self, valaszszama: int) -> str:
-        return f'{self._azonosító} {self._válaszok[valaszszama - 1]}'
