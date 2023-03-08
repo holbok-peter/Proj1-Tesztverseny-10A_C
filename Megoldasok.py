@@ -8,14 +8,10 @@ class Megoldasok:
     válaszok: str = ''
 
     @property
-    def versenyzok_szama(self) -> int:
-        return len(self._valaszok_list)
-
-    @property
     def m_lista(self):
         return self._valaszok_list
 
-    # 2.feladat:
+    # 1.feladat:
 
     def __init__(self, fájl_neve: str):
         self._valaszok_list = []
@@ -25,6 +21,12 @@ class Megoldasok:
                     self.helyes_megoldas = sor
                 else:
                     self._valaszok_list.append(Valaszok(sor))
+
+    # 2.feladat:
+
+    @property
+    def versenyzok_szama(self) -> int:
+        return len(self._valaszok_list)
 
     # 3.feladat:
 
